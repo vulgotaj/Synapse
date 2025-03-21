@@ -1,0 +1,49 @@
+.purple_button {
+    padding: 10px 20px;
+    color: #FFF;
+    background-color:#7833E9;
+    font-weight: 600;
+    font-family: 'Comfortaa', serif;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: ease 0.3s;
+}
+
+.purple_button:hover {
+    transform: scale(1.025);
+    background-color: #5811d7;
+}
+
+/* NEON BUTTON */
+
+.purple_styled_button {
+    font-family: 'monument extended', serif;
+    text-decoration: none;
+    font-size: 24px;
+    color: #7833E9;
+    font-weight: 400;
+    display: inline-block;
+    padding: 8px 32px;
+    border: #7833E9 2px solid;
+    border-radius: 30px;
+    text-shadow: 0 0 8px rgba(255,255,255, 0.3), 0 0 29px rgba(163, 34, 196, 0.3);
+    box-shadow: inset 0 0 16px rgba(163, 34, 196, 0.7), 0 0 16px rgba(163, 34, 196, 0.7);
+    transition: ease 1s;
+}
+
+.purple_styled_button:hover {
+    background-color: #7833E9;
+    color: #FFF;
+    transform:scale(1.10);
+    text-shadow: 0 0 29px rgba(255,255,255, 0.3), 0 0 8px rgba(163, 34, 196, 0.3);
+    box-shadow: inset 0 0 16px rgba(255, 255, 255, 0.1), 0 0 32px rgba(163, 34, 196, 1);
+}
+
+@media (max-width: 450px) { /*CELULARES*/
+    .purple_styled_button {
+        text-align: center;
+        font-size: 18px;
+        padding: 8px 16px;
+    }
+}

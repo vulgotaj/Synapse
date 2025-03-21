@@ -1,0 +1,375 @@
+#header {
+    background-color: #FFF;
+    padding: 10px;
+    position: sticky;
+    top: 0;
+    box-shadow: 0px 1px 10px #2c2c2c;
+    z-index: 99;
+    width: 100%;
+    max-height: 100px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 100%;
+    margin: auto;
+    padding: 0 20px;
+}
+
+.menunav-button {
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.logo img{
+    height: 50px;
+}
+
+.menucart-button {
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* Menu Area */
+
+#header_menu {
+    background-color: #FFF;
+    width: 20%;
+    height: 100%;
+    position: fixed; /* Alterado para fixed para garantir que o menu esteja acima de tudo */
+    top: 0; /* No topo da janela */
+    left: 0; /* Alinhado ao lado esquerdo */
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2); /* Sombra para destacar */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 10;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
+
+#header_menu.active {
+    transform: translateX(0);
+}
+
+#close_menu {
+    margin-left: auto; /* Empurra o botão para a direita */
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #000;
+    padding: 10px 15px 5px 0;
+}
+
+#header_menu nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+}
+
+#header_menu nav ul {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding-left: 20px;
+    list-style: none;
+}
+
+#header_menu nav ul li a {
+    text-decoration: none;
+    font-family: 'Comfortaa', serif;
+    color: #000;
+    font-size: 18px;
+    font-style: italic;
+    transition: ease 0.3s;
+}
+
+#header_menu nav ul li a:hover {
+    color:#7833E9;
+}
+
+.menu_register {
+    padding: 30px;
+    border-top: 1px solid rgba(0,0,0,0.2);
+    box-shadow: 0px 1px 7px #2c2c2c;
+}
+
+.menu_register a {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-decoration: none;
+    color: #000;
+}
+
+.menu_register i {
+    font-size: 18px;
+    margin-right: 20px;
+    transition: ease 0.3s;
+}
+
+.menu_register:hover a{
+    color: #7833E9;
+}
+
+.menu_register span {
+    font-family: 'Comfortaa', serif;
+    font-weight: bold;
+    transition: ease 0.3s;
+}
+
+/* Menu Drop */
+
+.menu_drop {
+    position: relative;
+    max-height: 300px;
+}
+
+.menu_drop .drop {
+    max-height: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding-left: 30px;
+    transition: .5s;
+}
+
+.menu_drop .drop a{
+    margin-top: 2rem;
+}
+
+.menu_drop .drop a:first-child {
+    margin-top: 0;
+}
+
+.menu_drop:hover .drop{
+    max-height: 300px;
+    margin-top: 2rem;
+}
+
+/* Menu Overlay */
+
+#menu_overlay {
+    z-index: 9;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+}
+
+/* Carrinho */
+
+/* Sobreposição do carrinho */
+#cart_overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo escuro semitransparente */
+    z-index: 9; /* Abaixo do carrinho */
+    display: none; /* Escondido inicialmente */
+}
+
+/* Carrinho retrátil */
+#cart_menu {
+    background-color: #fff;
+    width: 30%; /* Ajuste conforme necessário */
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: -30%; /* Escondido fora da tela */
+    box-shadow: -1px 0px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    z-index: 10; /* Acima da sobreposição */
+    transform: translateX(0);
+    transition: transform 0.3s ease;
+    padding: 20px;
+}
+
+/* Carrinho ativo */
+#cart_menu.active {
+    transform: translateX(-100%);
+}
+
+/* Botão de fechar */
+#close_cart {
+    align-self: flex-end;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #000;
+    padding: 10px;
+}
+
+/* Conteúdo do carrinho */
+
+#cart_menu h2 {
+    margin-top: -30px;
+    z-index: -1;
+}
+
+.cart_item_group {
+    flex: 1;
+    padding: 20px;
+    text-align: center;
+    overflow-y: scroll;
+    margin-top: 20px;
+}
+
+.cart_item {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(245, 245, 245);
+}
+
+.cart_item_img {
+    border: 1px solid #eee;
+    box-shadow: -1px 0px 10px rgba(0, 0, 0, 0.2);
+    max-width: 125px;
+    max-height: 125px;
+    margin-right: 20px;
+}
+
+.cart_item_img img{
+    max-width: 125px;
+    max-height: 125px;
+}
+
+.cart_item_content {
+    margin-top: 30px;
+    text-align: left;
+    flex: 2;
+}
+
+.cart_item_name {
+    font-family: 'Comfortaa', serif;
+    font-size: 16px;
+}
+
+.cart_item_price {
+    margin-top: 15px;
+    font-size: 18px;
+}
+
+.cart_item i {
+    font-size: 24px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.buy_button {
+    background-color:#7833E9;
+    color: #FFF;
+    font-size: 20px;
+    border-radius: 5px;
+    padding: 20px;
+    text-decoration: none;
+    text-align: center;
+    margin-top: 20px;
+    transition: ease 1s;
+}
+
+.buy_button:hover {
+    background-color: #5811d7;
+    transform: scale(1.02);
+}
+
+@media (min-width: 800px) and (max-width: 1280px) { /*Monitores Menores*/
+    #header_menu {
+        width: 50%;
+    }
+
+    #cart_menu {
+        width: 50%; /* Ajuste conforme necessário */
+        right: -50%; /* Escondido fora da tela */
+    }
+}
+
+@media (min-width: 450px) and (max-width: 800px) { /*TABLETS*/
+    #header_menu {
+        width: 100%;
+    }
+
+    .menu_drop .drop {
+        max-height: 300px;
+        margin-top: 2rem;
+    }
+
+    #cart_menu {
+        width: 100%; /* Ajuste conforme necessário */
+        right: -100%; /* Escondido fora da tela */
+    }
+
+    .cart_item {
+        max-width: 600px;
+        margin: 20px auto;
+    }
+
+    .cart_item_img {
+        max-width: 100px;
+        max-height: 100px;
+        margin-right: 20px;
+    }
+    
+    .cart_item_img img{
+        max-width: 100px;
+        max-height: 100px;
+    }
+}
+
+@media (max-width: 450px) { /*CELULARES*/
+    #header_menu {
+        width: 100%;
+    }
+
+    .menu_drop .drop {
+        max-height: 300px;
+        margin-top: 2rem;
+    }
+
+    #cart_menu {
+        width: 100%; /* Ajuste conforme necessário */
+        right: -100%; /* Escondido fora da tela */
+    }
+
+    .cart_item_img {
+        max-width: 100px;
+        max-height: 100px;
+        margin-right: 20px;
+    }
+    
+    .cart_item_img img{
+        max-width: 100px;
+        max-height: 100px;
+    }
+    
+    .cart_item_content {
+        margin-top: 10px;
+        text-align: center;
+    }
+    
+    .cart_item_name {
+        font-size: 14px;
+    }
+    
+    .cart_item_price {
+        margin-top: 20px;
+        font-size: 14px;
+    }
+    
+    .cart_item i {
+        font-size: 20px;
+    }
+}
